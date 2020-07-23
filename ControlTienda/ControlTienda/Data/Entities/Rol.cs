@@ -2,14 +2,14 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class Category
+    public class Rol
     {
         public int Id { get; set; }
 
-        [MaxLength(30)]  //Lácteos, Fiambres, Bebidas Alcoholicas
+        [MaxLength(25)] //Administrador, Encargado de TI
         public string Name { get; set; }
 
         [MaxLength(250)]
-        public string Desciption { get; set; }
+        public string Details { get; set; }
     }
 }

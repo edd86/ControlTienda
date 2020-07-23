@@ -1,25 +1,21 @@
-﻿
-
-namespace ControlTienda.Data.Entities
+﻿namespace ControlTienda.Data.Entities
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Product
+    public class Purchase
     {
         public int Id { get; set; }
 
-        [MaxLength(25)] //7774900003425
-        public string BarCode { get; set; }  
+        public DateTime? Date { get; set; }
 
-        [MaxLength(150)] //Mayonesa Hellsman Gold de 500gr.
-        public string Name { get; set; }
+        [MaxLength(250)]
+        public string Remark { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal Price { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
-        public double Stock { get; set; }
+        public int Quantity { get; set; }
     }
-
-    
 }
