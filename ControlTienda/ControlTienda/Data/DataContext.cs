@@ -5,6 +5,10 @@
 
     public class DataContext : DbContext
     {
+        public DataContext() : base("name=conection")
+        {
+        }
+
         public DbSet<Cash> Cashes { get; set; }
         public DbSet<CashFlow> CashFlows { get; set; }
         public DbSet<Category> Categories { get; set; }
