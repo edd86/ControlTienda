@@ -96,6 +96,14 @@
     <Compile Include="Migrations\202007242112402_InitialDB.designer.cs">
       <DependentUpon>202007242112402_InitialDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007282217272_Relationships.cs" />
+    <Compile Include="Migrations\202007282217272_Relationships.designer.cs">
+      <DependentUpon>202007282217272_Relationships.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007282225120_FristSeed.cs" />
+    <Compile Include="Migrations\202007282225120_FristSeed.designer.cs">
+      <DependentUpon>202007282225120_FristSeed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -112,6 +120,12 @@
     </Compile>
     <EmbeddedResource Include="Migrations\202007242112402_InitialDB.resx">
       <DependentUpon>202007242112402_InitialDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007282217272_Relationships.resx">
+      <DependentUpon>202007282217272_Relationships.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007282225120_FristSeed.resx">
+      <DependentUpon>202007282225120_FristSeed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

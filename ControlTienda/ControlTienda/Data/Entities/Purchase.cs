@@ -17,5 +17,8 @@
 
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
         public int Quantity { get; set; }
+
+
+        public CashFlow CashFlow { get; set; }
     }
 }

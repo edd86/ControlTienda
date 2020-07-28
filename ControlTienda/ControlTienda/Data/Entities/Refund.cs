@@ -12,5 +12,8 @@
 
         [MaxLength(250)]
         public string Remark { get; set; }
+
+
+        public DetailSale DetailSale { get; set; }
     }
 }

@@ -17,5 +17,10 @@
 
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal Amount { get; set; }
+
+
+        public Product Product { get; set; }
+
+        public Purchase Purchase { get; set; }
     }
 }

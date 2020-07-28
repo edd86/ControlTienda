@@ -14,5 +14,8 @@
 
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal MoneyOutflow { get; set; }
+
+
+        public Cash Cash { get; set; }
     }
 }
