@@ -5,7 +5,7 @@ namespace ControlTienda.Data.Entities
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Logg
+    public class Logg : IEntity
     {
         public int Id { get; set; }
         public DateTime? DateLogin { get; set; }

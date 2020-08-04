@@ -3,7 +3,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Refund
+    public class Refund : IEntity
     {
         public int Id { get; set; }
 

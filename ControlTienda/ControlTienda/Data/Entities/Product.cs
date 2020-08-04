@@ -4,7 +4,7 @@ namespace ControlTienda.Data.Entities
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class Product
+    public class Product : IEntity
     {
         public int Id { get; set; }
 

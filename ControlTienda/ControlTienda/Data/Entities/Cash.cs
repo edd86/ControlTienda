@@ -3,7 +3,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Cash
+    public class Cash : IEntity
     {
         public int Id { get; set; }
 

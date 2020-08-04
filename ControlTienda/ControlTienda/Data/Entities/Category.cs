@@ -5,7 +5,7 @@
     using System.ComponentModel.DataAnnotations;
     
 
-    public class Category
+    public class Category : IEntity
     {
         public int Id { get; set; }
 

@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class Rol
+    public class Rol : IEntity
     {
         public int Id { get; set; }
 

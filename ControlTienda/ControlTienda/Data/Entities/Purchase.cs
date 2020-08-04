@@ -3,7 +3,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Purchase
+    public class Purchase : IEntity
     {
         public int Id { get; set; }
 

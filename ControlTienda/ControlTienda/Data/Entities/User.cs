@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class User
+    public class User : IEntity
     {
         public int Id { get; set; }
 

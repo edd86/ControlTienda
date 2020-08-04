@@ -73,12 +73,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Data\CashFlowRepository.cs" />
+    <Compile Include="Data\CashRepository.cs" />
+    <Compile Include="Data\CategoryRepository.cs" />
     <Compile Include="Data\DataContext.cs" />
+    <Compile Include="Data\DetailPurchaseRepository.cs" />
     <Compile Include="Data\Entities\Cash.cs" />
     <Compile Include="Data\Entities\CashFlow.cs" />
     <Compile Include="Data\Entities\Category.cs" />
     <Compile Include="Data\Entities\DetailSale.cs" />
     <Compile Include="Data\Entities\DetailPurchase.cs" />
+    <Compile Include="Data\DetailSaleRepository.cs" />
+    <Compile Include="Data\IDetailSaleRepository.cs" />
+    <Compile Include="Data\Entities\IEntity.cs" />
     <Compile Include="Data\Entities\Logg.cs" />
     <Compile Include="Data\Entities\Product.cs" />
     <Compile Include="Data\Entities\Purchase.cs" />
@@ -86,6 +93,26 @@
     <Compile Include="Data\Entities\Rol.cs" />
     <Compile Include="Data\Entities\Sale.cs" />
     <Compile Include="Data\Entities\User.cs" />
+    <Compile Include="Data\GenericRepository.cs" />
+    <Compile Include="Data\ICashFlowRepository.cs" />
+    <Compile Include="Data\ICashRepository.cs" />
+    <Compile Include="Data\ICategoryRepository.cs" />
+    <Compile Include="Data\IDetailPurchaseRepository.cs" />
+    <Compile Include="Data\IGenericRepository.cs" />
+    <Compile Include="Data\ILoggRepository.cs" />
+    <Compile Include="Data\IProductRepository.cs" />
+    <Compile Include="Data\IPurchaseRepository.cs" />
+    <Compile Include="Data\IRefundRepository.cs" />
+    <Compile Include="Data\IRolRepository.cs" />
+    <Compile Include="Data\ISaleRepository.cs" />
+    <Compile Include="Data\IUserRepository.cs" />
+    <Compile Include="Data\LoggRepository.cs" />
+    <Compile Include="Data\ProductRepository.cs" />
+    <Compile Include="Data\PurchaseRepository.cs" />
+    <Compile Include="Data\RefundRepository.cs" />
+    <Compile Include="Data\RolRepository.cs" />
+    <Compile Include="Data\SaleRepository.cs" />
+    <Compile Include="Data\UserRepository.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -103,6 +130,14 @@
     <Compile Include="Migrations\202007282225120_FristSeed.cs" />
     <Compile Include="Migrations\202007282225120_FristSeed.designer.cs">
       <DependentUpon>202007282225120_FristSeed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007302241583_Seeder.cs" />
+    <Compile Include="Migrations\202007302241583_Seeder.designer.cs">
+      <DependentUpon>202007302241583_Seeder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007302244014_Seeder2.cs" />
+    <Compile Include="Migrations\202007302244014_Seeder2.designer.cs">
+      <DependentUpon>202007302244014_Seeder2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -126,6 +161,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007282225120_FristSeed.resx">
       <DependentUpon>202007282225120_FristSeed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007302241583_Seeder.resx">
+      <DependentUpon>202007302241583_Seeder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007302244014_Seeder2.resx">
+      <DependentUpon>202007302244014_Seeder2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
