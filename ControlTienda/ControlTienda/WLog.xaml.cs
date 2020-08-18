@@ -3,6 +3,7 @@
     using ControlTienda.Data;
     using ControlTienda.Data.Entities;
     using ControlTienda.Encrypt;
+    using ControlTienda.FrontEnd;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -32,6 +33,7 @@
             DataContext context = new DataContext();
             GenericRepository<User> generic = new GenericRepository<User>(context);
             Encrypting en = new Encrypting();
+            ParentWindow ventana = new ParentWindow();
             string nick = TbUserName.Text;
             var user = (from u in context.Users
                         where u.Nickname == nick
@@ -46,6 +48,8 @@
                     if (en.GetSHA256(pass) == user.Password)
                     {
                         MessageBox.Show("Logueado... " + user.Name);
+                        ventana.Show();
+                        Close();
                     }
                     else
                         MessageBox.Show("Incorrect Password");

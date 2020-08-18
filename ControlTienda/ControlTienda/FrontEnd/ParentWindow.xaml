@@ -6,7 +6,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:ControlTienda.FrontEnd"
         mc:Ignorable="d"
-        Title="Ventana Principal" Height="450" Width="800" Background="#ffbcffff" WindowStartupLocation="CenterScreen">
+        Title="Ventana Principal" Height="450" Width="800" Background="#ffbcffff" 
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -17,6 +18,22 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button x:Name="BtnUsers" Margin="5" Content="Users Managment"/>
+        
+        <Button x:Name="BtnUsers" Margin="5" Height="200" Width="200" HorizontalAlignment="Center" 
+                VerticalAlignment="Center" materialDesign:ButtonAssist.CornerRadius="30" Grid.Column="0" Grid.Row="0" Click="BtnUsers_Click">
+            <StackPanel>
+                <Image Source="/Imágenes/user.png" Width="150" Height="150" HorizontalAlignment="Center"/>
+                <Label Content="User Manager" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White"/>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="BtnProducts" Margin="5" Height="200" Width="200" HorizontalAlignment="Center" 
+                VerticalAlignment="Center" materialDesign:ButtonAssist.CornerRadius="30" Grid.Column="1" Grid.Row="0">
+            <StackPanel>
+                <Image Source="/Imágenes/product.png" Width="150" Height="150" HorizontalAlignment="Center"/>
+                <Label Content="Product Manager" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White"/>
+            </StackPanel>
+        </Button>
+        
     </Grid>
 </Window>

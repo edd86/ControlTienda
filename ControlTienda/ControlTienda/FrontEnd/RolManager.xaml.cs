@@ -15,19 +15,13 @@ using System.Windows.Shapes;
 namespace ControlTienda.FrontEnd
 {
     /// <summary>
-    /// Lógica de interacción para ParentWindow.xaml
+    /// Lógica de interacción para RolManager.xaml
     /// </summary>
-    public partial class ParentWindow : Window
+    public partial class RolManager : Window
     {
-        public ParentWindow()
+        public RolManager()
         {
             InitializeComponent();
-        }
-
-        private void BtnUsers_Click(object sender, RoutedEventArgs e)
-        {
-            UserWindow window = new UserWindow();
-            window.Show();
         }
     }
 }
