@@ -17,6 +17,7 @@
         {
             DataContext context = new DataContext();
             UserRepository repository = new UserRepository(context);
+
             var AllUsers = repository.GetAll();
             var list = (from u in AllUsers
                         select new User
@@ -30,6 +31,16 @@
                             RolId = u.RolId,
                         }).ToList();
             return list;
+        }
+
+        public User user(string nick)
+        {
+            DataContext context = new DataContext();
+            User user = new User();
+
+            return user = (from u in context.Users
+                    where u.Nickname == nick
+                    select u).FirstOrDefault();
         }
     }
 }

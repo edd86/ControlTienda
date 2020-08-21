@@ -46,7 +46,7 @@
                     FontSize="20" FontWeight="Bold" Content="ADD ROL" Grid.Column="1" Click="BtnAddRol_Click"/>
         </Grid>
 
-        <DataGrid x:Name="DgUsers" Margin="20" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid x:Name="DgUsers" Margin="20" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="DgUsers_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Full Name" Width="250" Binding="{Binding Name}" FontWeight="Bold"/>
                 <DataGridTextColumn Header="Address" Width="250" Binding="{Binding Address}" FontWeight="Bold"/>
@@ -57,8 +57,9 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <StackPanel>
-                                <Button x:Name="BtnEliminar" CommandParameter="{Binding Id}" Content="Delete"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="BtnEliminar" Margin="2" CommandParameter="{Binding Id}" Content="Delete" Click="BtnEliminar_Click"/>
+                                <Button x:Name="BtnUpdate" Margin="2" CommandParameter="{Binding Id}" Content="Update" Click="BtnUpdate_Click"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

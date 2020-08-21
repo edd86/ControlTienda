@@ -15,6 +15,9 @@ namespace ControlTienda.Data.Entities
         public string Remark { get; set; }
 
 
+        public int UserId { get; set; }
         public User User { get; set; }
+
+
     }
 }

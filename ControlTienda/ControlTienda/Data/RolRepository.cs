@@ -27,5 +27,16 @@
                               }).ToList();
             return list;
         }
+
+        public int ObtainId(string name)
+        {
+            DataContext context = new DataContext();
+            RolRepository repository = new RolRepository(context);
+            var AllRols = repository.GetAll();
+            var id = (from r in AllRols
+                      where r.Name == name
+                      select r.Id).FirstOrDefault();
+            return id;
+        }
     }
 }

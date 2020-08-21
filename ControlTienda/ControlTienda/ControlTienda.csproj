@@ -149,6 +149,10 @@
     <Compile Include="Migrations\202008140116499_FKUser.designer.cs">
       <DependentUpon>202008140116499_FKUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008202239314_LoggModify.cs" />
+    <Compile Include="Migrations\202008202239314_LoggModify.designer.cs">
+      <DependentUpon>202008202239314_LoggModify.cs</DependentUpon>
+    </Compile>
     <Compile Include="Validations\Attribs.cs" />
     <Compile Include="WLog.xaml.cs">
       <DependentUpon>WLog.xaml</DependentUpon>
@@ -210,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008140116499_FKUser.resx">
       <DependentUpon>202008140116499_FKUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008202239314_LoggModify.resx">
+      <DependentUpon>202008202239314_LoggModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

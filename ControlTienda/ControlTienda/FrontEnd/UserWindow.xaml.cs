@@ -31,7 +31,8 @@ namespace ControlTienda.FrontEnd
 
         private void BtnAddRol_Click(object sender, RoutedEventArgs e)
         {
-
+            RolManager rolManager = new RolManager();
+            rolManager.Show();
         }
 
         private void RefreshDataGrid()
@@ -40,7 +41,7 @@ namespace ControlTienda.FrontEnd
             DgUsers.ItemsSource = UserRepository.UserToList();
         }
 
-        private void RefreshComboBox()
+        public void RefreshComboBox()
         {
             CbRol.ItemsSource = RolRepository.AllRolToList();
             CbRol.SelectedValuePath = "Id";
@@ -80,6 +81,46 @@ namespace ControlTienda.FrontEnd
             }
             else
                 MessageBox.Show("The User Nick exist, change it please."); 
+        }
+
+        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            int Id = (int)((Button)sender).CommandParameter;
+            DataContext context = new DataContext();
+            UserRepository userRepository = new UserRepository(context);
+            var UserDel = userRepository.GetById(Id);
+            userRepository.Delete(UserDel);
+            RefreshDataGrid();
+        }
+
+        private void DgUsers_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var UserSelected = DgUsers.SelectedItem as User;
+            FillTextBox(UserSelected);
+        }
+
+        private void FillTextBox(User user)
+        {
+            TbName.Text = user.Name; TbAddress.Text = user.Address;
+            TbPhone.Text = user.Phone; TbNickName.Text = user.Nickname;
+            TbPassword.Password = user.Password;
+        }
+
+        private void BtnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext context = new DataContext();
+            UserRepository userRepository = new UserRepository(context);
+            Encrypting encrypting = new Encrypting();
+
+            int Id = (int)((Button)sender).CommandParameter;
+            var user = userRepository.GetById(Id);
+            user.Name = TbName.Text;
+            user.Address = TbAddress.Text;
+            user.Phone = TbPhone.Text;
+            user.Nickname = TbNickName.Text;
+            user.Password = encrypting.GetSHA256(TbPassword.Password);
+            user.RolId = Convert.ToInt16(CbRol.SelectedValue);
+            userRepository.Update(user);
         }
     }
 }

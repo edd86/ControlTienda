@@ -3,6 +3,7 @@
     using Entities;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Data.Entity.Migrations.Model;
     using System.Linq;
 
     public class GenericRepository<T> : IGenericRepository<T> where T : class, IEntity
@@ -41,6 +42,12 @@
         public T GetById(int id)
         {
             return context.Set<T>().FirstOrDefault(e => e.Id == id);
+        }
+
+        public void Update (T entity)
+        {
+            context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            SaveAll();
         }
 
         private void SaveAll()

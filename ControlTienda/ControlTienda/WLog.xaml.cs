@@ -31,13 +31,16 @@
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
             DataContext context = new DataContext();
-            GenericRepository<User> generic = new GenericRepository<User>(context);
+            UserRepository generic = new UserRepository(context);
+            LoggRepository loggRepository = new LoggRepository(context);
+            Logg logg = new Logg();
             Encrypting en = new Encrypting();
             ParentWindow ventana = new ParentWindow();
+
             string nick = TbUserName.Text;
-            var user = (from u in context.Users
-                        where u.Nickname == nick
-                        select u).FirstOrDefault();
+            DateTime login;
+            var user = generic.user(nick);
+
             if(!(user == null))
             {
                 if (!generic.Exist(user.Id))
@@ -48,11 +51,17 @@
                     if (en.GetSHA256(pass) == user.Password)
                     {
                         MessageBox.Show("Logueado... " + user.Name);
+                        login = DateTime.Now;
+                        logg.DateLogin = login;
+                        logg.UserId = user.Id;
+                        loggRepository.Create(logg);
                         ventana.Show();
                         Close();
                     }
                     else
+                    {
                         MessageBox.Show("Incorrect Password");
+                    }      
                 }
             }
             else
