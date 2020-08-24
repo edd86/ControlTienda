@@ -34,8 +34,9 @@ namespace ControlTienda.FrontEnd
 
         private void RefreshGrid()
         {
+            Rol rol = new Rol();
             DgRols.ItemsSource = null;
-            DgRols.ItemsSource = RolRepository.AllRolToList();
+            DgRols.ItemsSource = RolRepository.AllRolToList().OrderBy(r => r.Name);
         }
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
@@ -102,6 +103,12 @@ namespace ControlTienda.FrontEnd
         {
             TbName.Text = rolSelected.Name;
             TbDetail.Text = rolSelected.Details;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            UserWindow window = new UserWindow();
+            window.RefreshComboBox();
         }
     }
 }

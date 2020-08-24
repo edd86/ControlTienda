@@ -20,22 +20,25 @@
         {
             Rol rol = new Rol();
             User user = new User();
+            UserRepository userRepository = new UserRepository(context);
+            RolRepository rolRepository = new RolRepository(context);
             Encrypting encrypting = new Encrypting();
 
-            if(context.Rols == null && context.Users == null)
-            {
-                rol.Name = "Manager";
-                rol.Details = "This Rol has acces to all the System.";
-                context.Rols.Add(rol);
+            rol.Name = "Manager";
+            rol.Details = "This Rol has acces to all the System.";
+            rolRepository.Create(rol);
 
-                user.Nickname = "Manager";
-                user.Name = "Manager";
-                user.Password = encrypting.GetSHA256("Manager");
-                user.Rol = rol;
-                context.Users.Add(user);
-                context.SaveChanges();
-            }
-            
+            user.Nickname = "Manager";
+            user.Name = "Manager";
+            user.Password = encrypting.GetSHA256("Manager");
+            user.Rol = rol;
+            userRepository.Create(user);
+
+            /*if(context.Rols == null && context.Users == null)
+            {
+                
+            }*/
+
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method

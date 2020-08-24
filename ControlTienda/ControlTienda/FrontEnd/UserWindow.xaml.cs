@@ -22,6 +22,7 @@ namespace ControlTienda.FrontEnd
     /// </summary>
     public partial class UserWindow : Window
     {
+        int IdDG;
         public UserWindow()
         {
             InitializeComponent();
@@ -38,12 +39,12 @@ namespace ControlTienda.FrontEnd
         private void RefreshDataGrid()
         {
             DgUsers.ItemsSource = null;
-            DgUsers.ItemsSource = UserRepository.UserToList();
+            DgUsers.ItemsSource = UserRepository.UserToList().OrderBy(u => u.Name);
         }
 
         public void RefreshComboBox()
         {
-            CbRol.ItemsSource = RolRepository.AllRolToList();
+            CbRol.ItemsSource = RolRepository.AllRolToList().OrderBy(r => r.Name);
             CbRol.SelectedValuePath = "Id";
             CbRol.DisplayMemberPath = "Name"; 
         }
@@ -74,9 +75,9 @@ namespace ControlTienda.FrontEnd
                 user.Phone = phone;
                 user.Nickname = nickname;
                 user.Password = encrypting.GetSHA256(password);
-                user.RolId = Convert.ToInt32(CbRol.SelectedValue);
+                user.RolId = Convert.ToInt16(CbRol.SelectedValue);
                 repository.Create(user);
-                MessageBox.Show("User Created.");
+                MessageBox.Show("User Created. " + user.Name);
                 RefreshDataGrid();
             }
             else
@@ -88,6 +89,7 @@ namespace ControlTienda.FrontEnd
             int Id = (int)((Button)sender).CommandParameter;
             DataContext context = new DataContext();
             UserRepository userRepository = new UserRepository(context);
+
             var UserDel = userRepository.GetById(Id);
             userRepository.Delete(UserDel);
             RefreshDataGrid();
@@ -96,14 +98,22 @@ namespace ControlTienda.FrontEnd
         private void DgUsers_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var UserSelected = DgUsers.SelectedItem as User;
-            FillTextBox(UserSelected);
+            FillTextBox(UserSelected); IdDG = UserSelected.Id;
+        }
+
+        private bool ValidateId(int IdDG , int IdCP)
+        {
+            if (IdDG == IdCP)
+                return true;
+            else
+                return false;
         }
 
         private void FillTextBox(User user)
         {
             TbName.Text = user.Name; TbAddress.Text = user.Address;
             TbPhone.Text = user.Phone; TbNickName.Text = user.Nickname;
-            TbPassword.Password = user.Password;
+            TbPassword.Password = user.Password; CbRol.SelectedValue = user.RolId;
         }
 
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
@@ -113,14 +123,25 @@ namespace ControlTienda.FrontEnd
             Encrypting encrypting = new Encrypting();
 
             int Id = (int)((Button)sender).CommandParameter;
-            var user = userRepository.GetById(Id);
-            user.Name = TbName.Text;
-            user.Address = TbAddress.Text;
-            user.Phone = TbPhone.Text;
-            user.Nickname = TbNickName.Text;
-            user.Password = encrypting.GetSHA256(TbPassword.Password);
-            user.RolId = Convert.ToInt16(CbRol.SelectedValue);
-            userRepository.Update(user);
+
+            if (ValidateId(IdDG, Id))
+            {
+                var user = userRepository.GetById(Id);
+                user.Name = TbName.Text;
+                user.Address = TbAddress.Text;
+                user.Phone = TbPhone.Text;
+                user.Nickname = TbNickName.Text;
+                user.Password = encrypting.GetSHA256(TbPassword.Password);
+                user.RolId = Convert.ToInt16(CbRol.SelectedValue);
+                userRepository.Update(user);
+
+                MessageBox.Show(string.Format("Name: {1}{0}Address: {2}{0}Phone: {3}{0}NickName: {4}{0}", 
+                    Environment.NewLine, user.Name, user.Address, user.Phone, user.Nickname), "User Updated.");
+                RefreshDataGrid();
+            }
+            else
+                MessageBox.Show("The selected user is diferent from the button", "ERROR");
+            
         }
     }
 }
