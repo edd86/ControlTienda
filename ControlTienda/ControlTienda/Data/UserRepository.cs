@@ -42,5 +42,15 @@
                     where u.Nickname == nick
                     select u).FirstOrDefault();
         }
+
+        public User userLog()
+        {
+            DataContext context = new DataContext();
+            User user = new User();
+
+            return user = (from u in context.Users
+                           where u.StatusLog == true
+                           select u).FirstOrDefault();
+        }
     }
 }

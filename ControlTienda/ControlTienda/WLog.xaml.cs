@@ -33,6 +33,7 @@
             DataContext context = new DataContext();
             UserRepository generic = new UserRepository(context);
             LoggRepository loggRepository = new LoggRepository(context);
+            
             Logg logg = new Logg();
             Encrypting en = new Encrypting();
             ParentWindow ventana = new ParentWindow();
@@ -54,6 +55,8 @@
                         login = DateTime.Now;
                         logg.DateLogin = login;
                         logg.UserId = user.Id;
+                        user.StatusLog = true;
+                        generic.Update(user);
                         loggRepository.Create(logg);
                         ventana.Show();
                         Close();

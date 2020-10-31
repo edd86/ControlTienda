@@ -21,6 +21,8 @@
         [MinLength(8), MaxLength(200)]
         public string Password { get; set; }
 
+        public bool StatusLog { get; set; }
+
 
         public int RolId { get; set; }
         public Rol Rol { get; set; }

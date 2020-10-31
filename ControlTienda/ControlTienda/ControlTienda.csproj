@@ -153,6 +153,10 @@
     <Compile Include="Migrations\202008202239314_LoggModify.designer.cs">
       <DependentUpon>202008202239314_LoggModify.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010310552240_StatusLogUser.cs" />
+    <Compile Include="Migrations\202010310552240_StatusLogUser.designer.cs">
+      <DependentUpon>202010310552240_StatusLogUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Validations\Attribs.cs" />
     <Compile Include="WLog.xaml.cs">
       <DependentUpon>WLog.xaml</DependentUpon>
@@ -218,6 +222,9 @@
     <EmbeddedResource Include="Migrations\202008202239314_LoggModify.resx">
       <DependentUpon>202008202239314_LoggModify.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010310552240_StatusLogUser.resx">
+      <DependentUpon>202010310552240_StatusLogUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -232,10 +239,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imágenes\user.png" />
+    <Resource Include="Imágenes\door.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imágenes\product.png" />
+    <Resource Include="Imágenes\man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imágenes\package.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imágenes\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imágenes\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imágenes\close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

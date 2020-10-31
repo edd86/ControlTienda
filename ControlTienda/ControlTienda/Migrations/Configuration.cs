@@ -24,15 +24,22 @@
             RolRepository rolRepository = new RolRepository(context);
             Encrypting encrypting = new Encrypting();
 
-            rol.Name = "Manager";
-            rol.Details = "This Rol has acces to all the System.";
-            rolRepository.Create(rol);
-
-            user.Nickname = "Manager";
-            user.Name = "Manager";
-            user.Password = encrypting.GetSHA256("Manager");
-            user.Rol = rol;
-            userRepository.Create(user);
+            if(context.Rols == null)
+            {
+                rol.Name = "Manager";
+                rol.Details = "This Rol has acces to all the System.";
+                rolRepository.Create(rol);
+            }
+            
+            if(context.Users == null)
+            {
+                user.Nickname = "Manager";
+                user.Name = "Manager";
+                user.Password = encrypting.GetSHA256("Manager");
+                user.Rol = rol;
+                userRepository.Create(user);
+            }
+            
 
             /*if(context.Rols == null && context.Users == null)
             {
