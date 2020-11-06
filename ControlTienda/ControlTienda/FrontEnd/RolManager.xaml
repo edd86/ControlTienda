@@ -6,21 +6,13 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:ControlTienda.FrontEnd"
         mc:Ignorable="d"
-        Title="Rol Manager" Height="450" Width="550" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" Closed="Window_Closed" Closing="Window_Closing">
+        Title="Rol Manager" Height="450" Width="550" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" Closed="Window_Closed" 
+        Closing="Window_Closing" Background="#B0E3FF">
     <StackPanel>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            
-            <TextBox x:Name="TbName" Margin="10" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Rol Name" 
+        <TextBox x:Name="TbName" Margin="10" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Rol Name" 
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="20" Grid.Row="0"/>
-
-            <TextBox x:Name="TbDetail" Margin="10" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Rol Detail" 
+        <TextBox x:Name="TbDetail" Margin="10" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Rol Detail" 
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="20" Grid.Row="1"/>
-        </Grid>
-        
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -34,8 +26,8 @@
                     FontSize="20" FontWeight="Bold" Margin="15" Grid.Column="1" Click="BtnCancel_Click"/>
         </Grid>
 
-        <DataGrid x:Name="DgRols" MaxHeight="150" Margin="10" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible"
-                  ScrollViewer.HorizontalScrollBarVisibility="Auto" IsReadOnly="True" MouseDoubleClick="DgRols_MouseDoubleClick">
+        <DataGrid x:Name="DgRols" MaxHeight="250" Margin="10" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto" IsReadOnly="True" Height="180" MouseDoubleClick="DgRols_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="150" FontWeight="Bold"/>
                 <DataGridTextColumn Header="Details" Binding="{Binding Details}" Width="150" FontWeight="Bold"/>

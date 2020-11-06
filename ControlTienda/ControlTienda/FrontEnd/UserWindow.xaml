@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:ControlTienda.FrontEnd"
         mc:Ignorable="d"
         Title="User Manager" Height="900" Width="1600" MaxHeight="1000" MaxWidth="1700"
-        Background="#ffbcffff" WindowStartupLocation="CenterScreen">
+        Background="#B0E3FF" WindowStartupLocation="CenterScreen" Loaded="Cargar_Main">
     <StackPanel>
         
         <Grid Height="250" Margin="15">
@@ -21,17 +21,17 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBox x:Name="TbName" Margin="10" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Full Name" 
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="20" Grid.Column="0" Grid.Row="0"/>
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="20" Grid.Column="0" Grid.Row="0" Foreground="#005480"/>
             <TextBox x:Name="TbAddress" Margin="10" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Address" 
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="20" Grid.Column="0" Grid.Row="1"/>
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="20" Grid.Column="0" Grid.Row="1" Foreground="#005480"/>
             <TextBox x:Name="TbPhone" Margin="10" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Phone" 
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="20" Grid.Column="0" Grid.Row="3"/>
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="20" Grid.Column="0" Grid.Row="3" Foreground="#005480"/>
             <TextBox x:Name="TbNickName" Margin="10" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Nick Name" 
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="20" Grid.Column="1" Grid.Row="0"/>
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="20" Grid.Column="1" Grid.Row="0" Foreground="#005480"/>
             <PasswordBox x:Name="TbPassword" Margin="10" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Password" 
-                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontWeight="Bold" FontSize="20" Grid.Column="1" Grid.Row="1"/>
+                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontWeight="Bold" FontSize="20" Grid.Column="1" Grid.Row="1" Foreground="#005480"/>
             <ComboBox x:Name="CbRol" Margin="10" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Rol"
-                      Grid.Column="1" Grid.Row="2" FontWeight="Bold" FontSize="20"/>
+                      Grid.Column="1" Grid.Row="2" FontWeight="Bold" FontSize="20" Foreground="#005480"/>
         </Grid>
         
         <Grid Height="50" Margin="15">

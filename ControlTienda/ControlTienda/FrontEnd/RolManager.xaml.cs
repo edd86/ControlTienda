@@ -74,8 +74,16 @@ namespace ControlTienda.FrontEnd
             DataContext context = new DataContext();
             RolRepository rolRepository = new RolRepository(context);
             var RolDel = rolRepository.GetById(Id);
-            rolRepository.Delete(RolDel);
-            RefreshGrid();
+            if (!(RolDel.Name == "Manager"))
+            {
+                rolRepository.Delete(RolDel);
+                RefreshGrid();
+                MessageBox.Show("Rol eliminado", "Eliminar", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            else
+            {
+                MessageBox.Show("No se puede eliminar el Rol Manager", "Eliminar", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
@@ -84,12 +92,18 @@ namespace ControlTienda.FrontEnd
             RolRepository rolRepository = new RolRepository(context);
 
             int Id = (int)((Button)sender).CommandParameter;
-
             var rol = rolRepository.GetById(Id);
-            rol.Name = TbName.Text;
-            rol.Details = TbDetail.Text;
-
-            rolRepository.Update(rol);
+            if(!(rol.Name == "Manager"))
+            {
+                rol.Name = TbName.Text;
+                rol.Details = TbDetail.Text;
+                rolRepository.Update(rol);
+                MessageBox.Show("Rol Actualizado", "Actualizar", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            else
+            {
+                MessageBox.Show("El Rol Manager no se puede Modificar", "Actualizar", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             RefreshGrid();
         }
 

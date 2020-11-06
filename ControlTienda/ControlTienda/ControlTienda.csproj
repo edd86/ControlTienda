@@ -75,6 +75,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FrontEnd\ProductWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrontEnd\RolManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -134,6 +138,9 @@
     <Compile Include="Encrypt\Encrypting.cs" />
     <Compile Include="FrontEnd\ParentWindow.xaml.cs">
       <DependentUpon>ParentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\ProductWindow.xaml.cs">
+      <DependentUpon>ProductWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="FrontEnd\RolManager.xaml.cs">
       <DependentUpon>RolManager.xaml</DependentUpon>

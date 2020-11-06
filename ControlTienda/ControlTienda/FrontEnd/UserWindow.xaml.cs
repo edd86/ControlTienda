@@ -44,6 +44,7 @@ namespace ControlTienda.FrontEnd
 
         public void RefreshComboBox()
         {
+            CbRol.ItemsSource = null;
             CbRol.ItemsSource = RolRepository.AllRolToList().OrderBy(r => r.Name);
             CbRol.SelectedValuePath = "Id";
             CbRol.DisplayMemberPath = "Name"; 
@@ -142,6 +143,18 @@ namespace ControlTienda.FrontEnd
             else
                 MessageBox.Show("The selected user is diferent from the button", "ERROR");
             
+        }
+
+        private void Cargar_Main(object sender, RoutedEventArgs e)
+        {
+            DataContext context = new DataContext();
+            UserRepository userRepository = new UserRepository(context);
+            RolRepository rolRepository = new RolRepository(context);
+            var user = userRepository.userLog();
+            if (!(user.RolId == rolRepository.ObtainId("Manager")))
+            {
+                BtnAddRol.IsEnabled = false;
+            }
         }
     }
 }

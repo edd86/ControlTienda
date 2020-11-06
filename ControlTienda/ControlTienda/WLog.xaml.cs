@@ -39,7 +39,6 @@
             ParentWindow ventana = new ParentWindow();
 
             string nick = TbUserName.Text;
-            DateTime login;
             var user = generic.user(nick);
 
             if(!(user == null))
@@ -52,8 +51,7 @@
                     if (en.GetSHA256(pass) == user.Password)
                     {
                         MessageBox.Show("Logueado... " + user.Name);
-                        login = DateTime.Now;
-                        logg.DateLogin = login;
+                        logg.DateLogin = DateTime.Now;
                         logg.UserId = user.Id;
                         user.StatusLog = true;
                         generic.Update(user);
@@ -71,7 +69,6 @@
             {
                 MessageBox.Show("User does not exist...", "WARNING!!!");
             }
-              
         }
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)

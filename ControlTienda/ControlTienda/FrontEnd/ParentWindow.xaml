@@ -6,20 +6,21 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:ControlTienda.FrontEnd"
         mc:Ignorable="d"
-        Title="Ventana Principal" MinHeight="455" MinWidth="790" Height="460" Width="800" Background="#B0E3FF" 
+        Title="Ventana Principal" MinHeight="400" MinWidth="790" Height="450" Width="800" Background="#B0E3FF" 
         WindowStartupLocation="CenterScreen" WindowStyle="None" MaxHeight="465" MaxWidth="805">
-    <Grid Loaded="Show">
+    <Grid Loaded="Show" Margin="0,0,0,2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="190"/>
-            <RowDefinition Height="190"/>
-            <RowDefinition/>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
         
+        <!--Sector User-->
         <Button x:Name="BtnUsers" Margin="5" Height="150" HorizontalAlignment="Center" Cursor="Hand"
                 VerticalAlignment="Center" materialDesign:ButtonAssist.CornerRadius="30" Grid.Column="0" Grid.Row="0" Click="BtnUsers_Click">
             <StackPanel>
@@ -27,8 +28,9 @@
                 <Label Content="User Manager" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White"/>
             </StackPanel>
         </Button>
-
-        <Button x:Name="BtnProducts" Margin="5" Height="150" HorizontalAlignment="Center" Cursor="Hand"
+        
+        <!--Sector de productos-->
+        <Button x:Name="BtnProducts" Margin="5" Height="150" HorizontalAlignment="Center" Cursor="Hand" Click="BtnProducts_Click"
                 VerticalAlignment="Center" materialDesign:ButtonAssist.CornerRadius="30" Grid.Column="1" Grid.Row="0">
             <StackPanel>
                 <Image Source="/Imágenes/box.png" Height="100" HorizontalAlignment="Center"/>
@@ -36,9 +38,10 @@
             </StackPanel>
         </Button>
         
+        <!--Sector de salida-->
         <StackPanel Grid.Column="2" Grid.Row="2">
-            <Button x:Name="BtnSesion" Margin="10,0" Background="{x:Null}"
-                BorderBrush="{x:Null}" Cursor="Hand" ToolTip="Salir del Sistema" HorizontalAlignment="Right" Click="BtnSesion_Click">
+            <Button x:Name="BtnSesion" Margin="10,0" Background="{x:Null}" Cursor="Hand"
+                BorderBrush="{x:Null}" ToolTip="Cambiar Usuario" HorizontalAlignment="Right" Click="BtnSesion_Click">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Imágenes/logout.png" materialDesign:ShadowAssist.Darken="True"/>
                     <Label Content="Cerrar Sesión" FontSize="15" Foreground="#005480"/>

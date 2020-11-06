@@ -50,8 +50,14 @@ namespace ControlTienda.FrontEnd
         {
             DataContext context = new DataContext();
             UserRepository userRepository = new UserRepository(context);
+            RolRepository rolRepository = new RolRepository(context);
             var usLogued = userRepository.userLog();
             userLoged.Content = usLogued.Nickname;
+            if (!(usLogued.RolId == rolRepository.ObtainId("Manager")))
+            {
+                BtnUsers.IsEnabled = false;
+                BtnProducts.IsEnabled = false;
+            }
         }
 
         private void closeSesion()
@@ -65,6 +71,12 @@ namespace ControlTienda.FrontEnd
             logged.DateLogout = DateTime.Now;
             loggRepository.Update(logged);
             userRepository.Update(userLogged);
+        }
+
+        private void BtnProducts_Click(object sender, RoutedEventArgs e)
+        {
+            ProductWindow window = new ProductWindow();
+            window.Show();
         }
     }
 }

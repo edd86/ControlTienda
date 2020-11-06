@@ -1,0 +1,81 @@
+﻿<Window x:Class="ControlTienda.FrontEnd.ProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:ControlTienda.FrontEnd"
+        mc:Ignorable="d"
+        Title="Productos" Height="900" Width="1600" Background="#B0E3FF"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" MaxHeight="950" MaxWidth="1650">
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0">
+                <TextBox x:Name="TbBarCode" Margin="10, 5" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Bar Code" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="12" Foreground="#005480"/>
+                <TextBox x:Name="TbName" Margin="10, 5" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Product Name" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="12" Foreground="#005480"/>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" x:Name="TbPrice" Margin="10,5" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Price" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="12" Foreground="#005480"/>
+                    <TextBox Grid.Column="1" x:Name="TbStock" Margin="10, 5" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Stock" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="12" Foreground="#005480"/>
+                </Grid>
+                <ComboBox x:Name="CbCategory" Margin="10, 15, 10, 5" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Category"
+                      FontWeight="Bold" FontSize="12" Foreground="#005480"/>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="2">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
+                    <Button x:Name="btnAcpetar" Margin="10, 5" Content="Aceptar"/>
+                    <Button x:Name="btnCancelar" Margin="10, 5" Content="Cancelar"/>
+                    
+                </StackPanel>
+                <Button x:Name="btnBuscar" Margin="10,5" Content="Buscar Producto"/>
+            </StackPanel>
+        </Grid>
+        <DataGrid x:Name="DgProducts" Margin="10" AutoGenerateColumns="False" IsReadOnly="True" Height="700">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Code" Width="100" Binding="{Binding BarCode}" FontWeight="Bold"/>
+                <DataGridTextColumn Header="Name" Width="300" Binding="{Binding Name}" FontWeight="Bold"/>
+                <DataGridTextColumn Header="Price" Width="100" Binding="{Binding Price}" FontWeight="Bold"/>
+                <DataGridTextColumn Header="Stock" Width="100" Binding="{Binding Stock}" FontWeight="Bold"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="BtnEliminar" Margin="2" CommandParameter="{Binding Id}" Content="Delete"/>
+                                <Button x:Name="BtnUpdate" Margin="2" CommandParameter="{Binding Id}" Content="Update"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnSalir" Grid.Column="3" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right"
+                    Click="btnSalir_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Imágenes/close.png"/>
+                    <Label Content="Salir"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </StackPanel>
+</Window>
