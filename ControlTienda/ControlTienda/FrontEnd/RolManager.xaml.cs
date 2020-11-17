@@ -78,7 +78,7 @@ namespace ControlTienda.FrontEnd
             {
                 rolRepository.Delete(RolDel);
                 RefreshGrid();
-                MessageBox.Show("Rol eliminado", "Eliminar", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show("Rol "+RolDel.Name+" eliminado", "Eliminar", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else
             {

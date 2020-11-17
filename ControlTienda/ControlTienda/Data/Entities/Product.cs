@@ -9,7 +9,7 @@ namespace ControlTienda.Data.Entities
         public int Id { get; set; }
 
         [MaxLength(25)] //7774900003425
-        public string BarCode { get; set; }  
+        public string BarCode { get; set; }
 
         [MaxLength(150)] //Mayonesa Hellsman Gold de 500gr.
         public string Name { get; set; }
@@ -21,8 +21,9 @@ namespace ControlTienda.Data.Entities
         public double Stock { get; set; }
 
 
+        public int CategoryId { get; set; }
         public Category Category { get; set; }
-
+        
     }
 
     

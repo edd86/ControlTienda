@@ -164,7 +164,20 @@
     <Compile Include="Migrations\202010310552240_StatusLogUser.designer.cs">
       <DependentUpon>202010310552240_StatusLogUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Validations\Attribs.cs" />
+    <Compile Include="Migrations\202011060500367_ActualizacionProdutos.cs" />
+    <Compile Include="Migrations\202011060500367_ActualizacionProdutos.designer.cs">
+      <DependentUpon>202011060500367_ActualizacionProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011070149136_productos.cs" />
+    <Compile Include="Migrations\202011070149136_productos.designer.cs">
+      <DependentUpon>202011070149136_productos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011140112587_Product.cs" />
+    <Compile Include="Migrations\202011140112587_Product.designer.cs">
+      <DependentUpon>202011140112587_Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\ProductDataGrid.cs" />
+    <Compile Include="Query\Busqueda.cs" />
     <Compile Include="WLog.xaml.cs">
       <DependentUpon>WLog.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -232,6 +245,15 @@
     <EmbeddedResource Include="Migrations\202010310552240_StatusLogUser.resx">
       <DependentUpon>202010310552240_StatusLogUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011060500367_ActualizacionProdutos.resx">
+      <DependentUpon>202011060500367_ActualizacionProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011070149136_productos.resx">
+      <DependentUpon>202011070149136_productos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011140112587_Product.resx">
+      <DependentUpon>202011140112587_Product.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -262,6 +284,31 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imágenes\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imágenes\find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imágenes\escoba.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imágenes\flecha-abajo.png" />
+    <Resource Include="Imágenes\flecha-arriba.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imágenes\ordenar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imágenes\shopping-cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imágenes\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imágenes\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imágenes\Cash.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

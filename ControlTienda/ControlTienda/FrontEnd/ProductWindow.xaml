@@ -8,74 +8,157 @@
         mc:Ignorable="d"
         Title="Productos" Height="900" Width="1600" Background="#B0E3FF"
         WindowStartupLocation="CenterScreen" WindowStyle="None" MaxHeight="950" MaxWidth="1650">
-    <StackPanel>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Row="0" Grid.Column="0">
-                <TextBox x:Name="TbBarCode" Margin="10, 5" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Bar Code" 
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="12" Foreground="#005480"/>
-                <TextBox x:Name="TbName" Margin="10, 5" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Product Name" 
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="12" Foreground="#005480"/>
-            </StackPanel>
-            <StackPanel Grid.Row="0" Grid.Column="1">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="1100*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <GroupBox Margin="10" Header="Nuevo Producto" Style="{StaticResource MaterialDesignGroupBox}">
+                <StackPanel>
+                    <TextBox x:Name="tbBarCode" Margin="10, 25" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Bar Code" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="12" Foreground="#005480"/>
+                    <TextBox x:Name="tbName" Margin="10, 25" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Product Name" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="12" Foreground="#005480"/>
+                    <TextBox x:Name="tbPrecio" Margin="10, 25" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Precio"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="12" Foreground="#005480"/>
+                    <TextBox x:Name="tbStock" Margin="10, 25" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Stock" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="12" Foreground="#005480"/>
+                    <ComboBox x:Name="cbCategory" Margin="10, 30" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Category"
+                        FontWeight="Bold" FontSize="12" Foreground="#005480"/>
+                    <Button x:Name="btnAgregar" Margin="10, 25" Click="btnAgregar_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Imágenes/add.png" Margin="2"/>
+                            <TextBlock Text="Añadir Producto" Margin="5,0" FontSize="15" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </GroupBox>
+            <CheckBox x:Name="chbCategoria" Content="Agregar Categoria" HorizontalAlignment="Center" Foreground="#005480" FontSize="12" Margin="0,15,0,0" Checked="chbCategoria_Checked" Click="chbCategoria_Click"/>
+            <GroupBox x:Name="gbCategoria" Header="Categorias" IsEnabled="False" Margin="10">
+                <StackPanel>
+                    <TextBox x:Name="tbCategoria" Margin="10, 20" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Categoria"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="12" Foreground="#005480"/>
+                    <Button x:Name="btnAgregarCategoria" Content="Agregar" Margin="10, 5" Click="btnAgregarCategoria_Click"/>
+                    <Button x:Name="btnListarCaegoria" Content="Listar Categorias" Margin="10, 5"/>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Top">
+            <GroupBox Margin="10" Header="Listado de Productos">
+                <DataGrid x:Name="dgProductos" AutoGenerateColumns="False" IsReadOnly="True" Height="500" MouseDoubleClick="dgProductos_MouseDoubleClick">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Código de Barras" Width="250" Binding="{Binding BarCode}" FontWeight="Bold"/>
+                        <DataGridTextColumn Header="Descripción" Width="300" Binding="{Binding Name}" FontWeight="Bold"/>
+                        <DataGridTextColumn Header="Precio" Width="150" Binding="{Binding Price}" FontWeight="Bold"/>
+                        <DataGridTextColumn Header="Stock" Width="150" Binding="{Binding Stock}" FontWeight="Bold"/>
+                        <DataGridTextColumn Header="Categoria" Width="200" Binding="{Binding Categoria}" FontWeight="Bold"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+            <GroupBox x:Name="gbStock" Margin="10" Header="Agregar Stock de Productos">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="300*"/>
+                        <ColumnDefinition Width="150*"/>
+                        <ColumnDefinition Width="150*"/>
+                        <ColumnDefinition Width="150*"/>
+                        <ColumnDefinition Width="150*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" x:Name="TbPrice" Margin="10,5" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Price" 
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="12" Foreground="#005480"/>
-                    <TextBox Grid.Column="1" x:Name="TbStock" Margin="10, 5" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Stock" 
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" FontSize="12" Foreground="#005480"/>
-                </Grid>
-                <ComboBox x:Name="CbCategory" Margin="10, 15, 10, 5" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Category"
-                      FontWeight="Bold" FontSize="12" Foreground="#005480"/>
-            </StackPanel>
-            <StackPanel Grid.Row="0" Grid.Column="2">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
-                    <Button x:Name="btnAcpetar" Margin="10, 5" Content="Aceptar"/>
-                    <Button x:Name="btnCancelar" Margin="10, 5" Content="Cancelar"/>
-                    
-                </StackPanel>
-                <Button x:Name="btnBuscar" Margin="10,5" Content="Buscar Producto"/>
-            </StackPanel>
-        </Grid>
-        <DataGrid x:Name="DgProducts" Margin="10" AutoGenerateColumns="False" IsReadOnly="True" Height="700">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Code" Width="100" Binding="{Binding BarCode}" FontWeight="Bold"/>
-                <DataGridTextColumn Header="Name" Width="300" Binding="{Binding Name}" FontWeight="Bold"/>
-                <DataGridTextColumn Header="Price" Width="100" Binding="{Binding Price}" FontWeight="Bold"/>
-                <DataGridTextColumn Header="Stock" Width="100" Binding="{Binding Stock}" FontWeight="Bold"/>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
+                    <TextBox x:Name="tbBuscarStock" Grid.Column="0" Style="{StaticResource MaterialDesignTextBox}" Margin="10, 5" FontWeight="Bold" VerticalAlignment="Center"
+                             HorizontalAlignment="Center" materialDesign:HintAssist.Hint="Código de Barras o Descripción del Producto" FontSize="12" Foreground="#005480"/>
+                    <Button x:Name="btnBuscarStock" Grid.Column="1" Margin="5" Click="btnBuscarStock_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Imágenes/find.png" Margin="2" VerticalAlignment="Center"/>
+                            <TextBlock Text="Buscar" FontSize="15" Margin="5,0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="btnLimpiarStock" Grid.Column="2" Margin="5" Click="btnLimpiarStock_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Imágenes/escoba.png" Margin="2" VerticalAlignment="Center"/>
+                            <TextBlock Text="Limpiar" FontSize="15" Margin="5,0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Grid Grid.Column="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="75"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBox x:Name="tbCantidad" FontSize="15" Margin="5" VerticalAlignment="Center" FontWeight="Bold" HorizontalAlignment="Center"
+                                     Grid.RowSpan="2" Foreground="#005480" Style="{StaticResource MaterialDesignTextBox}"  materialDesign:HintAssist.Hint="Cantidad"/>
+                        <Button x:Name="btnAumentar" Margin="5" Grid.Column="1" Click="btnAumentar_Click">
                             <StackPanel Orientation="Horizontal">
-                                <Button x:Name="BtnEliminar" Margin="2" CommandParameter="{Binding Id}" Content="Delete"/>
-                                <Button x:Name="BtnUpdate" Margin="2" CommandParameter="{Binding Id}" Content="Update"/>
+                                <Image Source="/Imágenes/flecha-arriba.png"/>
                             </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Grid Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button x:Name="btnSalir" Grid.Column="3" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right"
-                    Click="btnSalir_Click">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/Imágenes/close.png"/>
-                    <Label Content="Salir"/>
-                </StackPanel>
-            </Button>
-        </Grid>
-    </StackPanel>
+                        </Button>
+                        <Button x:Name="btnDisminuir" Margin="5" Grid.Column="1" Grid.Row="1" Click="btnDisminuir_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Imágenes/flecha-abajo.png"/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                    <Button x:Name="btnCantidadStock" Grid.Column="4" Margin="5" Click="btnCantidadStock_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Imágenes/ordenar.png" Margin="5, 0"/>
+                            <TextBlock Text="Modificar Cantidad" Margin="5, 0" />
+                        </StackPanel>
+                    </Button>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Compra de Productos" Margin="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="210*"/>
+                        <ColumnDefinition Width="150*"/>
+                        <ColumnDefinition Width="150*"/>
+                        <ColumnDefinition Width="150*"/>
+                        <ColumnDefinition Width="150*"/>
+                        <ColumnDefinition Width="150*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="tbBuscarCompra" FontSize="12" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignTextBox}"
+                             Foreground="#005480" materialDesign:HintAssist.Hint="Código de Barras o Descripción del Producto" FontWeight="Bold" Grid.Column="0" Grid.RowSpan="2" HorizontalContentAlignment="Center"/>
+                    <Button x:Name="btnBuscarCompra" Grid.Column="1" Margin="5" Click="btnBuscarCompra_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Imágenes/find.png" Margin="2"/>
+                            <TextBlock Text="Buscar" FontSize="15" Margin="5, 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="btnLimpiarCompra" Grid.Column="1" Grid.Row="1" Margin="5" Click="btnLimpiarStock_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Imágenes/escoba.png" Margin="2"/>
+                            <TextBlock Text="Limpiar" FontSize="15" Margin="5, 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <TextBox x:Name="tbObservaciones" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignTextBox}"
+                             Foreground="#005480" materialDesign:HintAssist.Hint="Observaciones de Compra" FontWeight="Bold" Grid.RowSpan="2"/>
+                    <TextBox x:Name="tbMonto" Grid.Column="3" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignTextBox}"
+                             Foreground="#005480" materialDesign:HintAssist.Hint="Monto a Pagar" FontWeight="Bold" Grid.RowSpan="2"/>
+                    <TextBox x:Name="tbCantidadCompra" Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignTextBox}"
+                             Foreground="#005480" materialDesign:HintAssist.Hint="Cantidad a Comprar" FontWeight="Bold" Grid.RowSpan="2"/>
+                    <StackPanel Grid.Column="5" Grid.RowSpan="2">
+                        <Button x:Name="btnRegistrarCompra" Margin="5" Grid.RowSpan="2">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Imágenes/shopping-cart.png" Margin="2"/>
+                                <TextBlock Text="Comprar" FontSize="15" Margin="5, 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="btnSalir" Margin="5" Grid.RowSpan="2" Click="btnSalir_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Imágenes/close.png" Margin="2"/>
+                                <TextBlock Text="Salir" FontSize="15" Margin="5, 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
 </Window>

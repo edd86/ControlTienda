@@ -78,5 +78,10 @@ namespace ControlTienda.FrontEnd
             ProductWindow window = new ProductWindow();
             window.Show();
         }
+
+        private void btnCaja_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
